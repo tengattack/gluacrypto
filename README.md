@@ -15,8 +15,8 @@ import (
 L := lua.NewState()
 defer L.Close()
 
-// Preload LuaSocket modules
-gluasocket.Preload(L)
+// Preload LuaCrypto modules
+gluacrypto.Preload(L)
 ```
 
 ### Encoding
