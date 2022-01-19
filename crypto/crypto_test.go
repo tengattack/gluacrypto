@@ -43,8 +43,7 @@ func TestCrypto(t *testing.T) {
 	assert.NotNil(c)
 }
 
-// GetValue converts glua vm value to go value
-func GetValue(l *lua.LState, v lua.LValue) interface{} {
+func getValue(l *lua.LState, v lua.LValue) interface{} {
 	switch t := v.Type(); t {
 	case lua.LTNil:
 		return nil

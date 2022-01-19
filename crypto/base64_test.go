@@ -23,8 +23,8 @@ func TestBase64Encode(t *testing.T) {
 	`
 	assert.NoError(L.DoString(script))
 
-	val := GetValue(L, L.Get(1))
-	err := GetValue(L, L.Get(2))
+	val := getValue(L, L.Get(1))
+	err := getValue(L, L.Get(2))
 	assert.Nil(err)
 	assert.Equal(base64.StdEncoding.EncodeToString(Data), val)
 }
@@ -45,8 +45,8 @@ func TestBase64Decode(t *testing.T) {
 	`
 	assert.NoError(L.DoString(script))
 
-	val := GetValue(L, L.Get(1))
-	err := GetValue(L, L.Get(2))
+	val := getValue(L, L.Get(1))
+	err := getValue(L, L.Get(2))
 	assert.Nil(err)
 	assert.Equal(string(Data), val)
 }

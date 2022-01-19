@@ -28,8 +28,8 @@ func TestSha1(t *testing.T) {
 	`
 	assert.NoError(L.DoString(script))
 
-	val := GetValue(L, L.Get(1))
-	err := GetValue(L, L.Get(2))
+	val := getValue(L, L.Get(1))
+	err := getValue(L, L.Get(2))
 	assert.Nil(err)
 	assert.Equal(hex.EncodeToString(hashData), val)
 }
@@ -52,8 +52,8 @@ func TestSha1Raw(t *testing.T) {
 	`
 	assert.NoError(L.DoString(script))
 
-	val := GetValue(L, L.Get(1))
-	err := GetValue(L, L.Get(2))
+	val := getValue(L, L.Get(1))
+	err := getValue(L, L.Get(2))
 	assert.Nil(err)
 	assert.Equal(string(hashData), val)
 }

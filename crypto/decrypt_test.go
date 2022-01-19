@@ -52,8 +52,8 @@ func TestDecrypt(t *testing.T) {
 	  `
 		assert.NoError(L.DoString(script))
 
-		val := GetValue(L, L.Get(1))
-		serr := GetValue(L, L.Get(2))
+		val := getValue(L, L.Get(1))
+		serr := getValue(L, L.Get(2))
 		assert.Nil(serr)
 		assert.Equal(string(Data), val)
 	}
@@ -86,8 +86,8 @@ func TestDecryptRaw(t *testing.T) {
 	  `
 		assert.NoError(L.DoString(script))
 
-		val := GetValue(L, L.Get(1))
-		serr := GetValue(L, L.Get(2))
+		val := getValue(L, L.Get(1))
+		serr := getValue(L, L.Get(2))
 		assert.Nil(serr)
 		assert.Equal(string(Data), val)
 	}
@@ -106,8 +106,8 @@ func TestDecryptFail(t *testing.T) {
 	`
 	assert.NoError(L.DoString(script))
 
-	val := GetValue(L, L.Get(1))
-	err := GetValue(L, L.Get(2))
+	val := getValue(L, L.Get(1))
+	err := getValue(L, L.Get(2))
 	assert.NotNil(err)
 	assert.Nil(val)
 }
