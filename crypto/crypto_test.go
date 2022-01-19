@@ -1,6 +1,7 @@
 package gluacrypto_crypto_test
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -40,4 +41,16 @@ func TestCrypto(t *testing.T) {
 
 	c := L.Get(1)
 	assert.NotNil(c)
+}
+
+// GetValue converts glua vm value to go value
+func GetValue(l *lua.LState, v lua.LValue) interface{} {
+	switch t := v.Type(); t {
+	case lua.LTNil:
+		return nil
+	case lua.LTString:
+		return lua.LVAsString(v)
+	default:
+		panic(fmt.Sprintf("unknown lua type: %s", t))
+	}
 }

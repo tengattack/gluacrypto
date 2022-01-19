@@ -7,7 +7,6 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/tengattack/gluacrypto"
-	luautil "github.com/tengattack/gluacrypto/util"
 	lua "github.com/yuin/gopher-lua"
 )
 
@@ -29,8 +28,8 @@ func TestSha1(t *testing.T) {
 	`
 	assert.NoError(L.DoString(script))
 
-	val := luautil.GetValue(L, L.Get(1))
-	err := luautil.GetValue(L, L.Get(2))
+	val := GetValue(L, L.Get(1))
+	err := GetValue(L, L.Get(2))
 	assert.Nil(err)
 	assert.Equal(hex.EncodeToString(hashData), val)
 }
@@ -53,8 +52,8 @@ func TestSha1Raw(t *testing.T) {
 	`
 	assert.NoError(L.DoString(script))
 
-	val := luautil.GetValue(L, L.Get(1))
-	err := luautil.GetValue(L, L.Get(2))
+	val := GetValue(L, L.Get(1))
+	err := GetValue(L, L.Get(2))
 	assert.Nil(err)
 	assert.Equal(string(hashData), val)
 }

@@ -8,7 +8,6 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/tengattack/gluacrypto"
 	crypto "github.com/tengattack/gluacrypto/crypto"
-	luautil "github.com/tengattack/gluacrypto/util"
 	lua "github.com/yuin/gopher-lua"
 )
 
@@ -43,8 +42,8 @@ func TestEncrypt(t *testing.T) {
 	  `
 		assert.NoError(L.DoString(script))
 
-		val := luautil.GetValue(L, L.Get(1))
-		serr := luautil.GetValue(L, L.Get(2))
+		val := GetValue(L, L.Get(1))
+		serr := GetValue(L, L.Get(2))
 		assert.Nil(serr)
 		assert.Equal(hex.EncodeToString(out), val)
 	}
@@ -77,8 +76,8 @@ func TestEncryptRaw(t *testing.T) {
 	  `
 		assert.NoError(L.DoString(script))
 
-		val := luautil.GetValue(L, L.Get(1))
-		serr := luautil.GetValue(L, L.Get(2))
+		val := GetValue(L, L.Get(1))
+		serr := GetValue(L, L.Get(2))
 		assert.Nil(serr)
 		assert.Equal(string(out), val)
 	}
@@ -97,8 +96,8 @@ func TestEncryptFail(t *testing.T) {
 	`
 	assert.NoError(L.DoString(script))
 
-	val := luautil.GetValue(L, L.Get(1))
-	err := luautil.GetValue(L, L.Get(2))
+	val := GetValue(L, L.Get(1))
+	err := GetValue(L, L.Get(2))
 	assert.NotNil(err)
 	assert.Nil(val)
 }
