@@ -5,16 +5,18 @@ import (
 )
 
 var exports = map[string]lua.LGFunction{
-	"base64_encode": base64EncodeFn,
-	"base64_decode": base64DecodeFn,
-	"crc32":         crc32Fn,
-	"md5":           md5Fn,
-	"sha1":          sha1Fn,
-	"sha256":        sha256Fn,
-	"sha512":        sha512Fn,
-	"hmac":          hmacFn,
-	"encrypt":       encryptFn,
-	"decrypt":       decryptFn,
+	"base64_encode":     base64EncodeFn,
+	"base64_decode":     base64DecodeFn,
+	"base64_url_encode": base64URLEncodeFn,
+	"base64_url_decode": base64URLDecodeFn,
+	"crc32":             crc32Fn,
+	"md5":               md5Fn,
+	"sha1":              sha1Fn,
+	"sha256":            sha256Fn,
+	"sha512":            sha512Fn,
+	"hmac":              hmacFn,
+	"encrypt":           encryptFn,
+	"decrypt":           decryptFn,
 }
 
 func Loader(L *lua.LState) int {

@@ -19,7 +19,7 @@ var (
 )
 
 func init() {
-	Data = []byte("abcd")
+	Data = []byte("abcdd>ee?")
 	Key = []byte("key12345")
 	Key128 = []byte("key1234567890123")
 	IV = []byte("12345678")
